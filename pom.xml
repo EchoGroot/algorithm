@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.yuyy</groupId>
-    <artifactId>design-pattern</artifactId>
+    <artifactId>algorithm</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <description>学习算法，刷LeetCode</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -19,7 +20,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <!--            因单元测试为写到maven测试目录，所以如果是test范围，主代码编译过不了-->
+            <!--            因单元测试未写到maven测试目录，所以如果是test范围，主代码编译过不了-->
             <!--            <scope>test</scope>-->
             <version>${junit.version}</version>
         </dependency>
