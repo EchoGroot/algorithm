@@ -1,3 +1,6 @@
+*.json
+*.md
+*.bat
 # Compiled class file
 *.class
 
