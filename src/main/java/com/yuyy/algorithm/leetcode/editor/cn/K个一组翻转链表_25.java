@@ -30,18 +30,37 @@ public class K个一组翻转链表_25 {
             if (head == null) {
                 return null;
             }
-            ListNode tail = head;
-            ListNode headCopy = head;
+
+            // 找到下一个反转区间内的头结点
+            ListNode nextHead = head;
             for (int i = 0; i < k; i++) {
-                if (tail == null) {
+                // 如果长度不到k，就不反转
+                if (nextHead == null) {
                     return head;
                 }
-                tail = tail.next;
+                nextHead = nextHead.next;
             }
 
-            ListNode newHead = reverse(headCopy, tail);
-            headCopy.next = reverseKGroup(tail, k);
+            // 反转两个节点内的链表
+            ListNode newHead = reverse(head, nextHead);
+
+            // 利用递归拆解重复问题
+            head.next = reverseKGroup(nextHead, k);
             return newHead;
+        }
+
+        private ListNode reverse(ListNode headCopy, ListNode tail) {
+            ListNode curr = headCopy;
+            ListNode pre = null;
+
+            while (curr != tail) {
+                ListNode next = curr.next;
+                curr.next = pre;
+                pre = curr;
+                curr = next;
+            }
+
+            return pre;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
